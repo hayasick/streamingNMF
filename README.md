@@ -16,8 +16,15 @@ You can try the algorithm by the following make command:
 make demo
 ```
 This command will do:
+
  * automatically download [UCI Bag of Words NIPS Data Set](https://archive.ics.uci.edu/ml/datasets/Bag+of+Words) 
- * run the algorithm to detect topics from the co-occurrence matrix
+ * run the algorithm to detect topics from the co-occurrence matrix of the NIPS data
  * output topics for every 50 iterations (1 iteration = 1 document)
-The detected topics will be saved as ``out.itrXXXtopics.txt``
+
+The detected topics will be saved as ``out.itrXXXtopics.txt``.
  
+## Usage
+You can run the algorithm from the command line:
+```
+python run_nmf.py --rank 10 --delta_topic 50 --learning_rate 'invsqrt' < input_file
+```
