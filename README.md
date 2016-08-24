@@ -32,3 +32,15 @@ The details of options can be shown by:
 ```
 python run_nmf.py --help
 ```
+
+## Format of input file
+
+The format of the input file should be the following:
+```
+aaa bbb 3
+ccc ddd 1
+
+aaa eee 4
+sss ggg 2
+xxx nnn 
+```
