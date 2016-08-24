@@ -8,46 +8,44 @@ from streamingNMF import NMF
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--batch', dest='batch', action='store_true', default=False,
-                   help='learn with point-wise batch algorithm')
+                   help='Learn with the batch alternating least square algorithm')
 parser.add_argument('-r', '--rank', type=int, dest='rank', required=True, 
-                   help='the rank of the decomposed matrix')
+                   help='The rank of the decomposed matrix')
 parser.add_argument('-i', '--input', dest='input_file', default='stdin',
-                   help='the edge list of the matrix to decompose')
+                   help='The edge list of the matrix to decompose')
 parser.add_argument('-p', '--prefix', dest='pref', default='out.',
-                   help='the prefix of output files')
+                   help='The prefix of output files')
 parser.add_argument('-l', '--learning_rate', dest='eta', choices=['const', 'inv', 'invsqrt'], default='const',
-                   help='the strategy of learning rate')
+                   help='The strategy of learning rate')
 parser.add_argument('-s', '--scale', type=float, dest='scale', default=0.1,
-                   help='the scale of learning rate')
+                   help='The scale of learning rate')
 parser.add_argument('--tf', dest='tf', choices=['raw', 'log', 'sqrt'], default='log',
-                   help='term frequency')
+                   help='Term frequency')
 parser.add_argument('--idf', dest='idf', type=int, choices=[True, False], default=True,
-                   help='inversed document frequency')
+                   help='Inversed document frequency')
 parser.add_argument('-f', '--filter', dest='filter', default='000',
-                   help='filter for outsider/fixed-phrase')
+                   help='Filter for outsider/fixed-phrase')
 parser.add_argument('--pred_file', dest='pred_file', default=None,
-                   help='a file that precitions for missing values are written')
+                   help='A file that precitions for missing values are written')
 parser.add_argument('--delta_topic', dest='delta_topic', type=float, default=float('inf'),
-                   help='every this period a topic and a blacklist is written')
+                   help='Timing of making outputs')
 parser.add_argument('--delta_filtering', dest='delta_bl', type=float, default=float('nan'),
-                   help='frequency to update blacklist')
+                   help='Frequency to update blacklist')
 parser.add_argument('--max_itr', dest='max_itr', type=int, default=1,
-                   help='maximum number of iterations (epochs)')
+                   help='Maximum number of iterations (epochs)')
 parser.add_argument('--init_model', dest='init_model', default=None,
-                   help='file to initialize NMF model')
+                   help='File to initialize NMF model')
 parser.add_argument('--save_model', dest='save_model', default=None,
-                   help='file to save current NMF model')
+                   help='File to save current NMF model')
 parser.add_argument('--l1', type=float, dest='l1', default=0,
-                   help='coefficient of L1-regularization')
+                   help='Coefficient of L1 regularization')
 parser.add_argument('--l2', type=float, dest='l2', default=1e-4,
-                   help='coefficient of L2-regularization')
-parser.add_argument('--min_len', type=int, dest='min_len', default=3,
-                   help='minimum length of terms to be used for learning')
+                   help='Coefficient of L2 regularization')
 parser.add_argument('--start_filtering', dest='start_bl', type=int, default=0,
-                   help='start filtering after this iterations')
+                   help='Start filtering after this iterations')
 parser.add_argument('--sg_filtering', dest='sg_bl',
                     choices=('minlen', 'maxlr'), default='minlen',
-                    help='segmentation strategy for MGphrase')
+                    help='Segmentation strategy for MGphrase')
 
 parser.add_argument('--verbose', type=int, dest='verbose', default=0)
 
@@ -77,8 +75,7 @@ if args.verbose > 0:
     print eta_opt
     print filter_gaps
 
-opt = dict(file_name=args.input_file,\
-           is_skip_header=False, min_len=args.min_len)
+opt = dict(file_name=args.input_file, is_skip_header=False)
 trace_opt = dict(flag=0, delta_topic=args.delta_topic, delta_bl=args.delta_bl, start_bl=args.start_bl)
 
 if args.init_model is not None: ### load cache file
