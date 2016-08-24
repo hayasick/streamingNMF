@@ -24,7 +24,11 @@ This command will do:
 The detected topics will be saved as ``out.itrXXXtopics.txt``.
  
 ## Usage
-You can run the algorithm from the command line:
+You can run the algorithm from the command line. The command line is something like this:
 ```
 python run_nmf.py --rank 10 --delta_topic 50 --learning_rate 'invsqrt' < input_file
+```
+The details of options can be shown by:
+```
+python run_nmf.py --help
 ```
