@@ -35,12 +35,18 @@ python run_nmf.py --help
 
 ## Format of input file
 
-The format of the input file should be the following:
+An example of input:
 ```
-aaa bbb 3
-ccc ddd 1
+set set 256
+set human 608
+set number 320
+...
+problem analysis 255
+problem problem 225
 
-aaa eee 4
-sss ggg 2
-xxx nnn 
+layer layer 961
+layer nonlinear 558
+...
 ```
+ * each line should be ``word1 word2 freq``, which means ``word1`` and ``word2`` co-occurred ``freq`` times
+ * a blank line indicates the end of a document (an input file can contain multiple documents)
