@@ -1,14 +1,14 @@
 # streamingNMF
-A streaming algorithm of non-negative matrix factorization. For more details, see our paper:
+A streaming algorithm of non-negative matrix factorization. For more details, see [1].
 
+[1] Kohei Hayashi, Takanori Maehara, Masashi Toyoda, Ken-ichi Kawarabayashi.
 [Real-time Top-R Topic Detection on Twitter with Topic Hijack Filtering.](http://dx.doi.org/10.1145/2783258.2783402)
-Kohei Hayashi, Takanori Maehara, Masashi Toyoda, Ken-ichi Kawarabayashi.
 KDD 2015
 
 ## Requirements
 * python 2.X
-* numpy
-* argparse
+ * numpy
+ * argparse
  
 ## Demo
 You can try the algorithm by the following make command:
